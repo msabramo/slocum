@@ -20,15 +20,15 @@ console_handler = logging.StreamHandler(sys.stderr)
 logger.addHandler(console_handler)
 logger.setLevel("INFO")
 
-from sl import windbreaker
-from sl.lib import (griblib, tinylib, rtefcst, enslib, saildocs, conventions)
+from slocum import windbreaker
+from slocum.lib import (griblib, tinylib, rtefcst, enslib, saildocs, conventions)
 
 
 def handle_spot(args):
     """
     Converts a packed spot forecast to a spot text message.
     """
-    from sl.lib import visualize
+    from slocum.lib import visualize
     payload = args.input.read()
     fcsts = tinylib.from_beaufort(payload)
     if conventions.ENSEMBLE in fcsts:
